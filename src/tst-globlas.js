@@ -1,8 +1,11 @@
 export const allTests = [];
 
 const Matcher = (value) => ({
-    toBe: (toMatch) =>
-        value !== toMatch ? new Error(`${value} is not equal to ${toMatch}`) : true,
+    toBe: (toMatch) => {
+        if (value !== toMatch) {
+            throw new Error(`${value} is not equal to ${toMatch}`);
+        }
+    },
 });
 
 globalThis.it = (description, test) => allTests.push({ description, test });

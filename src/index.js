@@ -26,13 +26,13 @@ export const runTests = async (
                 test.test();
             } catch (err) {
                 failed.push(test.description + ' ' + err);
-                console.error(' '.repeat(6) + err);
-                return;
+                console.log(' '.repeat(6) + ' ' + test.description + ' ' + err);
             }
             console.log(' '.repeat(6) + '✔ ' + test.description);
         }
     }
-    console.log('\n', `${testNumber + 1 - failed.length} Tests \x1b[42m${' PASSED '}\x1b[40m `);
+    console.log('\n');
+    console.log(`${testNumber - failed.length} Tests \x1b[42m${' PASSED '}\x1b[40m `);
     if (failed.length) {
         console.log(`${failed.length} Tests \x1b[41m${' FAILED '}\x1b[40m `);
         throw new Error('Error! Test failed.  See above for more details.');

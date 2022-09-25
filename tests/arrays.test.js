@@ -8,6 +8,6 @@ describe('Testing arrays', () => {
     });
     it('mapping works', () => {
         const reuslt = mapFunction([8, 2, 7]);
-        expect(reuslt.join() === [9, 3, 8].join()).toBe(true);
+        expect(reuslt.join() === [9, 3, 5].join()).toBe(true);
     });
 });
