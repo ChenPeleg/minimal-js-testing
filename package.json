@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Miniaml JS testing framework for educational puresses",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "test"
+    "test":  "node ./testing/index.js"
   },
   "repository": {
     "type": "git",
