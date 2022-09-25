@@ -8,7 +8,7 @@ const Matcher = (value) => ({
 globalThis.it = (description, test) => allTests.push({ description, test });
 
 globalThis.describe = (description, tests) => {
-    console.log(' '.repeat(4) + description);
+    console.log('\n', ' '.repeat(4) + description);
     tests();
 };
 

@@ -12,12 +12,12 @@ export const runTests = async (
     ignoredLibs = /.git|node_modules/
 ) => {
     const testFiles = await searchTestFiles(fileNameMatcher, ignoredLibs);
-    console.log(`Running Tests. \n Found ${testFiles.length} test files`);
+    console.log(`Running tests in ${testFiles.length} files:`);
     let testNumber = 0;
     const failed = [];
     for (const fileName of testFiles) {
+        console.log('\n', fileName, '\n');
         await import(path.relative(__dirname, fileName).replace(/\\/g, '/'));
-        console.log(fileName);
 
         for (testNumber; testNumber < allTests.length; testNumber++) {
             const test = allTests[testNumber];
@@ -32,9 +32,9 @@ export const runTests = async (
             console.log(' '.repeat(6) + '✔ ' + test.description);
         }
     }
-    console.log(`${testNumber + 1 - failed.length} Tests ${' PASSED '}`);
+    console.log('\n', `${testNumber + 1 - failed.length} Tests \x1b[42m${' PASSED '}\x1b[40m `);
     if (failed.length) {
-        console.log(`${failed.length} Tests ${' FAILED '}`);
+        console.log(`${failed.length} Tests \x1b[41m${' FAILED '}\x1b[40m `);
         throw new Error('Error! Test failed.  See above for more details.');
     }
 };
