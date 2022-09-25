@@ -1,0 +1,19 @@
+{
+  "name": "minimal-js-testing",
+  "version": "1.0.0",
+  "description": "Miniaml JS testing framework for educational puresses",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChenPeleg/minimal-js-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChenPeleg/minimal-js-testing/issues"
+  },
+  "homepage": "https://github.com/ChenPeleg/minimal-js-testing#readme"
+}
