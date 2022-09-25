@@ -1,13 +1,16 @@
 export const allTests = [];
 
 const Matcher = (value) => ({
-    toBe: (match) =>
-        value !== match ? new Error(`${value} is not equal to ${match}`) : true,
+    toBe: (toMatch) =>
+        value !== toMatch ? new Error(`${value} is not equal to ${toMatch}`) : true,
 });
 
-globalThis.it = (desctiption, test) => allTests.push(desctiption, test);
+globalThis.it = (description, test) => allTests.push({ description, test });
 
-globalThis.describe = (desctiption, tests) => tests();
+globalThis.describe = (description, tests) => {
+    console.log(' '.repeat(4) + description);
+    tests();
+};
 
 globalThis.expect = (value) => {
     return Matcher(value);

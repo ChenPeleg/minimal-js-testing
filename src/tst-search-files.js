@@ -1,15 +1,13 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-export const searchTestFiles = async (fileNameMatcher, ignoreLibs) => {
+export const searchTestFiles = async (fileNameMatcher, ignoredLibs) => {
     const recursiveGetAllTestFiles = (dir, allFiles) => {
-        const dirCont = fs.readdirSync(dir);
-        dirCont
-            .filter((f) => !f.match(ignoreLibs))
+        fs.readdirSync(dir)
+            .filter((f) => !f.match(ignoredLibs))
             .forEach((elm, i) => {
                 const fullFileName = path.join(dir, elm);
-                const stat = fs.lstatSync(fullFileName);
-                if (stat.isDirectory()) {
+                if (fs.lstatSync(fullFileName).isDirectory()) {
                     return recursiveGetAllTestFiles(fullFileName, allFiles);
                 }
                 if (elm.match(fileNameMatcher)) {
