@@ -8,10 +8,10 @@ const _glob_allTests = allTests;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const runTests = async (
-    fileNameMatcher = /.*\.(test.m?js|spec.m?js)/gi,
-    ignoredLibs = /.git|node_modules/
+    testFilesNamesPattern = 'test.m?js|spec.m?j',
+    ignoredLibs = '.git|node_modules'
 ) => {
-    const testFiles = await searchTestFiles(fileNameMatcher, ignoredLibs);
+    const testFiles = await searchTestFiles(testFilesNamesPattern, ignoredLibs);
     console.log(`Running tests in ${testFiles.length} files:`);
     let testNumber = 0;
     const failed = [];
@@ -38,4 +38,8 @@ export const runTests = async (
         throw new Error('Error! Test failed.  See above for more details.');
     }
 };
-runTests();
+const testfiles = process.argv
+    .filter((a) => a.includes('testfiles='))[0]
+    ?.replace('testfiles=', '');
+const ingnore = process.argv.filter((a) => a.includes('ingnore='))[0]?.replace('ingnore=', '');
+runTests(testfiles, ingnore);
