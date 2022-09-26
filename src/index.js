@@ -32,7 +32,11 @@ export const runTests = async (
         }
     }
     console.log('\n');
-    console.log(`${testNumber - failed.length} Tests \x1b[42m${' PASSED '}\x1b[40m `);
+    console.log(
+        `${testNumber - failed.length} Tests ${
+            testNumber ? '\x1b[42m PASSED ' : 'were found'
+        }\x1b[40m `
+    );
     if (failed.length) {
         console.log(`${failed.length} Tests \x1b[41m${' FAILED '}\x1b[40m `);
         throw new Error('Error! Test failed.  See above for more details.');
