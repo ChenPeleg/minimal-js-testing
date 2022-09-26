@@ -1,13 +1,13 @@
 const filterFunction = (arr) => arr.filter((el) => el > 5);
-const mapFunction = (arr) => arr.filter((el) => el + 1);
+const mapFunction = (arr) => arr.map((el) => el + 1);
 
 describe('Testing arrays', () => {
-    it('filtering works', () => {
+    it('filterFunction should filter arrays below 6', () => {
         const reuslt = filterFunction([8, 2, 7]);
         expect(reuslt.join() === [8, 7].join()).toBe(true);
     });
-    it('mapping works', () => {
+    it('mapFunction should add one to all numbers in array', () => {
         const reuslt = mapFunction([8, 2, 7]);
-        expect(reuslt.join() === [9, 3, 5].join()).toBe(true);
+        expect(reuslt.join() === [9, 3, 8].join()).toBe(true);
     });
 });
