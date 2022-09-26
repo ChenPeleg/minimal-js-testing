@@ -42,4 +42,5 @@ const testfiles = process.argv
     .filter((a) => a.includes('testfiles='))[0]
     ?.replace('testfiles=', '');
 const ingnore = process.argv.filter((a) => a.includes('ingnore='))[0]?.replace('ingnore=', '');
+//testfiles, ingnore
 runTests(testfiles, ingnore);
