@@ -4,7 +4,6 @@ import * as path from 'path';
 export const searchTestFiles = async (testFilesNamesPattern, ignoredLibs) => {
     const testFilesNamesRegex = new RegExp(`.*${testFilesNamesPattern}`, 'gi');
     const ignoredLibsRegex = new RegExp(`.*${ignoredLibs}`, 'gi');
-    console.log(testFilesNamesRegex, ignoredLibsRegex);
     const recursiveGetAllTestFiles = (dir, allFiles) => {
         fs.readdirSync(dir)
             .filter((f) => !f.match(ignoredLibsRegex))

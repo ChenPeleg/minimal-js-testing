@@ -11,7 +11,7 @@ const Matcher = (value) => ({
 globalThis.it = (description, test) => allTests.push({ description, test });
 
 globalThis.describe = (description, tests) => {
-    console.log('\n', ' '.repeat(4) + description);
+    console.log('\n     ' + description);
     tests();
 };
 

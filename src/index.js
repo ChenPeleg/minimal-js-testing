@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import { allTests } from './tst-globlas.js';
 import { searchTestFiles } from './tst-search-files.js';
 
-const _glob_allTests = allTests;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const runTests = async (testfiles, ignoredLibs) => {
