@@ -41,8 +41,8 @@ const testfiles =
     process.argv.filter((a) => a.includes('testfiles='))[0]?.replace('testfiles=', '') ||
     'test.m?js|spec.m?j';
 
-const ingnore =
-    process.argv.filter((a) => a.includes('ingnore='))[0]?.replace('ingnore=', '') ||
+const ignore =
+    process.argv.filter((a) => a.includes('ignore='))[0]?.replace('ignore=', '') ||
     '.git|node_modules';
 
-runTests(testfiles, ingnore);
+runTests(testfiles, ignore);
