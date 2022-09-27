@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { allTests } from './tst-globlas.js';
+import { allTests } from './tst-globals.js';
 import { searchTestFiles } from './tst-search-files.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
